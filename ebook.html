@@ -1,0 +1,394 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js" defer init></script>
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+  (function(){
+      emailjs.init("HPoh-Y7-4rQp1JEfA");
+  })();
+</script>
+<script src="script.js"></script>
+  
+  <script type="text/javascript">
+    window.tailwind.config = {
+      darkMode: ['class'],
+      theme: {
+        extend: {
+          colors: {
+            border: 'hsl(var(--border))',
+            input: 'hsl(var(--input))',
+            ring: 'hsl(var(--ring))',
+            background: 'hsl(var(--background))',
+            foreground: 'hsl(var(--foreground))',
+            primary: {
+              DEFAULT: 'hsl(var(--primary))',
+              foreground: 'hsl(var(--primary-foreground))'
+            },
+            secondary: {
+              DEFAULT: 'hsl(var(--secondary))',
+              foreground: 'hsl(var(--secondary-foreground))'
+            },
+            destructive: {
+              DEFAULT: 'hsl(var(--destructive))',
+              foreground: 'hsl(var(--destructive-foreground))'
+            },
+            muted: {
+              DEFAULT: 'hsl(var(--muted))',
+              foreground: 'hsl(var(--muted-foreground))'
+            },
+            accent: {
+              DEFAULT: 'hsl(var(--accent))',
+              foreground: 'hsl(var(--accent-foreground))'
+            },
+            popover: {
+              DEFAULT: 'hsl(var(--popover))',
+              foreground: 'hsl(var(--popover-foreground))'
+            },
+            card: {
+              DEFAULT: 'hsl(var(--card))',
+              foreground: 'hsl(var(--card-foreground))'
+            },
+          },
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Pacifico&display=swap');
+    @layer base {
+      :root {
+        --background: 0 0% 100%;
+        --foreground: 240 10% 3.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 240 10% 3.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 240 10% 3.9%;
+        --primary: 240 5.9% 10%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 240 4.8% 95.9%;
+        --secondary-foreground: 240 5.9% 10%;
+        --muted: 240 4.8% 95.9%;
+        --muted-foreground: 240 3.8% 46.1%;
+        --accent: 240 4.8% 95.9%;
+        --accent-foreground: 240 5.9% 10%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 240 5.9% 90%;
+        --input: 240 5.9% 90%;
+        --ring: 240 5.9% 10%;
+        --radius: 0.5rem;
+      }
+      .dark {
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 240 10% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --popover: 240 10% 3.9%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 240 5.9% 10%;
+        --secondary: 240 3.7% 15.9%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 240 3.7% 15.9%;
+        --muted-foreground: 240 5% 64.9%;
+        --accent: 240 3.7% 15.9%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 240 3.7% 15.9%;
+        --input: 240 3.7% 15.9%;
+        --ring: 240 4.9% 83.9%;
+      }
+    }
+
+    @layer components {
+      .font-pacifico {
+        font-family: 'Pacifico', cursive;
+      }
+    }
+
+    .Btn {
+  width: 140px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to right,#77530a,#ffd277,#77530a,#77530a,#ffd277,#77530a);
+  background-size: 250%;
+  background-position: left;
+  color: #ffd277;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 1s;
+  overflow: hidden;
+}
+
+.Btn::before {
+  position: absolute;
+  content: "SUBSCRIBE";
+  color: #ffd277;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 97%;
+  height: 90%;
+  border-radius: 8px;
+  transition-duration: 1s;
+  background-color: rgba(0, 0, 0, 0.842);
+  background-size: 200%;
+}
+
+.Btn:hover {
+  background-position: right;
+  transition-duration: 1s;
+}
+
+.Btn:hover::before {
+  background-position: right;
+  transition-duration: 1s;
+}
+
+.Btn:active {
+  transform: scale(0.95);
+}
+
+
+.hover-pop {
+      display: inline-block; /* Ensure the text is inline to avoid the box effect */
+      transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+    }
+
+    .hover-pop:hover {
+      transform: scale(1.1); /* Pop-up effect */
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Text shadow */
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-background text-foreground">
+    <header class="bg-white shadow">
+      <div class="container mx-auto flex justify-between items-center py-4 px-6">
+        <div class="text-2xl font-bold font-pacifico hover-pop text-gray-800">ReadNest</div>
+
+             <div class="flex items-center space-x-4">
+          <input type="text" placeholder="Search over 10 million book titles" class="border rounded-lg px-4 py-2" />
+          <button class="bg-primary text-primary-foreground px-4 py-2 rounded-lg">Search</button>
+          <button class="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg">Cart</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="" >
+      
+            <div id="carousel" class="container mx-auto py-16 text-center transition-transform duration-1000 ease-in-out">
+              <div class="carousel-item">
+                <img src="mulbanner.jpg" alt="Banner Image" class="mx-auto mb-4">
+        
+                
+              
+            
+            </div>
+            <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-blue-4 text-primary px-4 py-2 rounded-full">‹</button>
+            <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white text-primary px-4 py-2 rounded-full">›</button>
+          </div>
+
+          <div class="container mx-auto py-8 grid grid-cols-4 gap-4 text-center">
+            <div class="bg-white p-4 rounded-lg shadow transition transform hover:scale-105 hover:shadow-lg">
+              <img src="quick.png" alt="Quick Delivery" class="mx-auto mb-2" />
+              <div class="font-bold">Quick Delivery</div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow transition transform hover:scale-105 hover:shadow-lg">
+              <img src="secure-payment.png" alt="Pay with Ease" class="mx-auto mb-2" />
+              <div class="font-bold">Pay with Ease</div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow transition transform hover:scale-105 hover:shadow-lg">
+              <img src="payment-method.png" alt="Best Deal" class="mx-auto mb-2" />
+              <div class="font-bold">Best Deal</div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow transition transform hover:scale-105 hover:shadow-lg">
+              <img src="secure-payment.png" alt="Secured Payment" class="mx-auto mb-2" />
+              <div class="font-bold">Secured Payment</div>
+            </div>
+          </div>
+          
+
+    <!-- Current Bestsellers Section -->
+    <div class="container mx-auto py-8">
+      <div class="flex justify-between items-center mb-4">
+        <div class="text-2xl font-bold">Current Bestsellers</div>
+        <button class="text-primary">View All</button>
+      </div>
+      <div class="relative">
+        <div class="flex overflow-x-auto space-x-4">
+          <div class="bg-white p-4 rounded-lg shadow min-w-[200px]">
+            <img src="love.jpeg" alt="Twisted Love" class="mb-2" />
+            <div class="font-bold">Twisted Love</div>
+            <button class="bg-primary text-primary-foreground px-4 py-2 rounded-lg mt-2">$15.90</button>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow min-w-[200px]">
+            <img src="hate.jpeg" alt="Twisted Hate" class="mb-2" />
+            <div class="font-bold">Twisted Hate</div>
+            <button class="bg-primary text-primary-foreground px-4 py-2 rounded-lg mt-2">$20.00</button>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow min-w-[200px]">
+            <img src="lies.jpeg" alt="Twisted Lies" class="mb-2" />
+            <div class="font-bold">Twisted Lies</div>
+            <button class="bg-primary text-primary-foreground px-4 py-2 rounded-lg mt-2">$12.50</button>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow min-w-[200px]">
+            <img src="game.jpeg" alt="Twisted Game" class="mb-2" />
+            <div class="font-bold">Twisted Game</div>
+            <button class="bg-primary text-primary-foreground px-4 py-2 rounded-lg mt-2">$14.99</button>
+          </div>
+          <!-- <div class="bg-white p-4 rounded-lg shadow min-w-[200px]">
+            <img src="https://placehold.co/150x200" alt="Book 5" class="mb-2" />
+            <div class="font-bold">Book 5</div>
+            <button class="bg-primary text-primary-foreground px-4 py-2 rounded-lg mt-2">$17.80</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Rated Books Section -->
+    <div class="container mx-auto py-8">
+      <div class="flex justify-between items-center mb-4">
+        <div class="text-2xl font-bold">Top Rated Books</div>
+        <button class="text-primary">View All</button>
+      </div>
+      <div class="relative">
+        <div class="flex overflow-x-auto space-x-4">
+          <div class="bg-white p-4 rounded-lg shadow min-w-[200px]">
+            <img src="kite runner.jpg" alt="The Kite Runner" class="mb-2" />
+            <div class="font-bold">The Kite Runner</div>
+            <button class="bg-primary text-primary-foreground px-4 py-2 rounded-lg mt-2">$22.30</button>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow min-w-[200px]">
+            <img src="shard-removebg-preview.png" alt="Shard" class="mb-2" />
+            <div class="font-bold">SHARD</div>
+            <button class="bg-primary text-primary-foreground px-4 py-2 rounded-lg mt-2">$25.00</button>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow min-w-[200px]">
+            <img src="goodsisters-removebg-preview.png" alt=">Good Sister" class="mb-2" />
+            <div class="font-bold">The Good Sister and Her Flying Monkey</div>
+            <button class="bg-primary text-primary-foreground px-4 py-2 rounded-lg mt-2">$18.50</button>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow min-w-[200px]">
+            <img src="Cul.png" alt="Book 4" class="mb-2" />
+            <div class="font-bold">CUL -DE- SAC Crossroads</div>
+            <button class="bg-primary text-primary-foreground px-4 py-2 rounded-lg mt-2">$21.99</button>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow min-w-[200px]">
+            <img src="cruel.png" alt="Cruel Nature" class="mb-2" />
+            <div class="font-bold">Cruel Nature</div>
+            <button class="bg-primary text-primary-foreground px-4 py-2 rounded-lg mt-2">$24.80</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter Subscription Section -->
+    <div class="container mx-auto py-8">
+      <div class="bg-white p-6 rounded-lg shadow text-center">
+        <div class="text-2xl font-bold mb-4">Subscribe to our Newsletter</div>
+        <form class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+          <input type="email" placeholder="Enter your email address" id="email" name="email" class="border rounded-lg px-4 py-2" style="border-color: lavender;" required />
+
+          <button class="btn" onclick="SendMail()">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+
+  <div class="bg-purple-600 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap justify-between">
+        <div class="w-full md:w-1/4 mb-6 md:mb-0">
+          <h2 class="text-2xl font-bold text-green-400">Read<span class="text-white">Nest</span></h2>
+          <p class="mt-4 text-sm">               Your Ultimate Destination for Books!  </p>
+          <div class="flex mt-4 space-x-4">
+            <a href="#" class="text-white hover:text-zinc-300"><img aria-hidden="true" alt="facebook-icon" src="https://openui.fly.dev/openui/24x24.svg?text=📘" /></a>
+            <a href="#" class="text-white hover:text-zinc-300"><img aria-hidden="true" alt="twitter-icon" src="https://openui.fly.dev/openui/24x24.svg?text=🐦" /></a>
+            <a href="#" class="text-white hover:text-zinc-300"><img aria-hidden="true" alt="instagram-icon" src="https://openui.fly.dev/openui/24x24.svg?text=📸" /></a>
+            <a href="#" class="text-white hover:text-zinc-300"><img aria-hidden="true" alt="linkedin-icon" src="https://openui.fly.dev/openui/24x24.svg?text=🔗" /></a>
+          </div>
+        </div>
+        <div class="w-full md:w-1/4 mb-6 md:mb-0">
+          <h3 class="text-lg font-semibold">Quick Links</h3>
+          <ul class="mt-4 space-y-2">
+            <li><a href="#" class="text-white hover:text-zinc-300">Home</a></li>
+            <li><a href="#" class="text-white hover:text-zinc-300">Books</a></li>
+            <li><a href="#" class="text-white hover:text-zinc-300">Pricing</a></li>
+            <li><a href="#" class="text-white hover:text-zinc-300">Authors</a></li>
+            <li><a href="#" class="text-white hover:text-zinc-300">About</a></li>
+            <li><a href="#" class="text-white hover:text-zinc-300">Resources</a></li>
+          </ul>
+        </div>
+        <div class="w-full md:w-1/4 mb-6 md:mb-0">
+          <h3 class="text-lg font-semibold">Support</h3>
+          <ul class="mt-4 space-y-2">
+            <li><a href="#" class="text-white hover:text-zinc-300">Order Track</a></li>
+            <li><a href="#" class="text-white hover:text-zinc-300">Contact Us</a></li>
+            <li><a href="#" class="text-white hover:text-zinc-300">Find My Product</a></li>
+            <li><a href="#" class="text-white hover:text-zinc-300">Guide</a></li>
+            <li><a href="#" class="text-white hover:text-zinc-300">FAQ</a></li>
+            <li><a href="#" class="text-white hover:text-zinc-300">FAQ - Happy Return</a></li>
+            <li><a href="#" class="text-white hover:text-zinc-300">Help Desk</a></li>
+            <li><a href="#" class="text-white hover:text-zinc-300">Writer/Publisher Request</a></li>
+          </ul>
+        </div>
+        <div class="w-full md:w-1/4 mb-6 md:mb-0">
+          <h3 class="text-lg font-semibold">Policies</h3>
+          <ul class="mt-4 space-y-2">
+            <li><a href="#" class="text-white hover:text-zinc-300">Terms of Use</a></li>
+            <li><a href="#" class="text-white hover:text-zinc-300">Privacy Policy</a></li>
+            <li><a href="#" class="text-white hover:text-zinc-300">Happy Return</a></li>
+            <li><a href="#" class="text-white hover:text-zinc-300">Return Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-purple-500 mt-8 pt-4 text-center text-sm">
+        <p>© Copyright 2024 powered by  Payal Gondane</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const carousel = document.getElementById('carousel');
+    const items = carousel.querySelectorAll('.carousel-item');
+    const totalItems = items.length;
+    let currentIndex = 0;
+
+    function showItem(index) {
+      carousel.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    document.getElementById('next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalItems;
+      showItem(currentIndex);
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+      showItem(currentIndex);
+    });
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalItems;
+      showItem(currentIndex);
+    }, 30000);
+  </script>
+</body>
+</html>
+
+
+
